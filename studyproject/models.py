@@ -50,7 +50,7 @@ class User(AbstractUser):
     wxstore_openid = models.CharField("微信小店openid", max_length=100, blank=True, db_index=True)
 
     USERNAME_FIELD = "phone"
-    REQUIRED_FIELDS = ["nickName"]
+    REQUIRED_FIELDS = ["email", "nickName"]
 
     class Meta:
         db_table = "user"
