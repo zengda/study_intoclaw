@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Intoclaw</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .api-endpoints {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .endpoint {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 4px;
+        }
+        .method {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Study Intoclaw</h1>
+    <p>欢迎使用 Study Intoclaw 系统</p>
+    
+    <div class="api-endpoints">
+        <h2>API 接口</h2>
+        <div class="endpoint">
+            <span class="method">POST</span> /api/auth/register/ - 用户注册
+        </div>
+        <div class="endpoint">
+            <span class="method">POST</span> /api/auth/login/ - 用户登录
+        </div>
+        <div class="endpoint">
+            <span class="method">POST</span> /api/auth/refresh/ - 刷新 Token（从Cookie获取refresh token）
+        </div>
+        <div class="endpoint">
+            <span class="method">POST</span> /api/auth/logout/ - 用户登出（清除Cookie）
+        </div>
+        <div class="endpoint">
+            <span class="method">GET</span> /api/user/info/ - 获取用户信息
+        </div>
+    </div>
+</body>
+</html>
