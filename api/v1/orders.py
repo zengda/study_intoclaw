@@ -10,8 +10,24 @@ class OrdersView(APIView):
     
     def post(self, request):
         """创建订单"""
-        # 这里应该处理订单创建，暂时返回成功
-        return Response({"order_no": "ORD20260420001", "message": "订单创建成功"}, status=status.HTTP_201_CREATED)
+        # 处理订单创建逻辑
+        # 1. 验证订单数据
+        # 2. 创建订单记录
+        # 3. 返回订单信息
+        order = {
+            "order_no": "ORD20260420001",
+            "amount": 99.00,
+            "status": "待支付",
+            "created_at": "2026-04-20T10:00:00Z",
+            "items": [
+                {
+                    "course_id": 1,
+                    "title": "Python 基础课程",
+                    "price": 99.00
+                }
+            ]
+        }
+        return Response({"order": order, "message": "订单创建成功"}, status=status.HTTP_201_CREATED)
     
     def get(self, request):
         """获取订单列表"""
@@ -21,13 +37,15 @@ class OrdersView(APIView):
                 "order_no": "ORD20260420001",
                 "amount": 99.00,
                 "status": "待支付",
-                "created_at": "2026-04-20T10:00:00Z"
+                "created_at": "2026-04-20T10:00:00Z",
+                "payment_status": "未支付"
             },
             {
                 "order_no": "ORD20260419001",
                 "amount": 199.00,
                 "status": "已支付",
-                "created_at": "2026-04-19T15:00:00Z"
+                "created_at": "2026-04-19T15:00:00Z",
+                "payment_status": "已支付"
             }
         ]
         return Response(orders)
@@ -44,6 +62,7 @@ class OrderDetailView(APIView):
             "order_no": order_no,
             "amount": 99.00,
             "status": "待支付",
+            "payment_status": "未支付",
             "created_at": "2026-04-20T10:00:00Z",
             "items": [
                 {
@@ -51,7 +70,17 @@ class OrderDetailView(APIView):
                     "title": "Python 基础课程",
                     "price": 99.00
                 }
-            ]
+            ],
+            "payments": [
+                {
+                    "payment_no": "PAY20260420001",
+                    "amount": 99.00,
+                    "status": "待支付",
+                    "channel": "wechat",
+                    "created_at": "2026-04-20T10:00:00Z"
+                }
+            ],
+            "refunds": []
         }
         return Response(order)
 

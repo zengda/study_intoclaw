@@ -107,7 +107,7 @@
         
         <h3>支付相关</h3>
         <div class="endpoint">
-            <span class="method">POST</span> /api/v1/payments/ - 创建支付
+            <span class="method">POST</span> /api/v1/payments/ - 创建支付单（需要订单号）
         </div>
         <div class="endpoint">
             <span class="method">GET</span> /api/v1/payments/{payment_no}/ - 获取支付详情
@@ -118,8 +118,10 @@
         <div class="endpoint">
             <span class="method">POST</span> /api/v1/payments/callback/alipay/ - 支付宝支付回调
         </div>
+        
+        <h3>退款相关</h3>
         <div class="endpoint">
-            <span class="method">POST</span> /api/v1/refunds/ - 申请退款
+            <span class="method">POST</span> /api/v1/refunds/ - 申请退款（需要订单号、支付单号、金额）
         </div>
     </div>
 </body>
