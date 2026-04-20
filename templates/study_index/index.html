@@ -38,20 +38,88 @@
     
     <div class="api-endpoints">
         <h2>API 接口</h2>
+        <h3>认证相关</h3>
         <div class="endpoint">
-            <span class="method">POST</span> /api/auth/register/ - 用户注册
+            <span class="method">POST</span> /api/v1/auth/register/ - 用户注册
         </div>
         <div class="endpoint">
-            <span class="method">POST</span> /api/auth/login/ - 用户登录
+            <span class="method">POST</span> /api/v1/auth/login/ - 用户登录
         </div>
         <div class="endpoint">
-            <span class="method">POST</span> /api/auth/refresh/ - 刷新 Token（从Cookie获取refresh token）
+            <span class="method">POST</span> /api/v1/auth/refresh/ - 刷新 Token
         </div>
         <div class="endpoint">
-            <span class="method">POST</span> /api/auth/logout/ - 用户登出（清除Cookie）
+            <span class="method">POST</span> /api/v1/auth/logout/ - 用户登出
+        </div>
+        
+        <h3>用户相关</h3>
+        <div class="endpoint">
+            <span class="method">GET</span> /api/v1/users/me/ - 获取当前用户信息
         </div>
         <div class="endpoint">
-            <span class="method">GET</span> /api/user/info/ - 获取用户信息
+            <span class="method">PUT</span> /api/v1/users/me/ - 更新用户信息
+        </div>
+        <div class="endpoint">
+            <span class="method">POST</span> /api/v1/users/change-password/ - 修改密码
+        </div>
+        
+        <h3>课程相关</h3>
+        <div class="endpoint">
+            <span class="method">GET</span> /api/v1/courses/ - 获取课程列表
+        </div>
+        <div class="endpoint">
+            <span class="method">GET</span> /api/v1/courses/{slug}/ - 获取课程详情
+        </div>
+        <div class="endpoint">
+            <span class="method">GET</span> /api/v1/courses/{slug}/lessons/ - 获取课程章节
+        </div>
+        <div class="endpoint">
+            <span class="method">POST</span> /api/v1/courses/{slug}/reviews/ - 提交课程评价
+        </div>
+        <div class="endpoint">
+            <span class="method">GET</span> /api/v1/courses/{slug}/reviews/ - 获取课程评价
+        </div>
+        
+        <h3>学习相关</h3>
+        <div class="endpoint">
+            <span class="method">GET</span> /api/v1/learning/my-courses/ - 获取我的课程
+        </div>
+        <div class="endpoint">
+            <span class="method">GET</span> /api/v1/learning/courses/{course_id}/progress/ - 获取课程进度
+        </div>
+        <div class="endpoint">
+            <span class="method">POST</span> /api/v1/learning/lessons/{lesson_id}/progress/ - 提交章节进度
+        </div>
+        
+        <h3>订单相关</h3>
+        <div class="endpoint">
+            <span class="method">POST</span> /api/v1/orders/ - 创建订单
+        </div>
+        <div class="endpoint">
+            <span class="method">GET</span> /api/v1/orders/ - 获取订单列表
+        </div>
+        <div class="endpoint">
+            <span class="method">GET</span> /api/v1/orders/{order_no}/ - 获取订单详情
+        </div>
+        <div class="endpoint">
+            <span class="method">POST</span> /api/v1/orders/{order_no}/cancel/ - 取消订单
+        </div>
+        
+        <h3>支付相关</h3>
+        <div class="endpoint">
+            <span class="method">POST</span> /api/v1/payments/ - 创建支付
+        </div>
+        <div class="endpoint">
+            <span class="method">GET</span> /api/v1/payments/{payment_no}/ - 获取支付详情
+        </div>
+        <div class="endpoint">
+            <span class="method">POST</span> /api/v1/payments/callback/wechat/ - 微信支付回调
+        </div>
+        <div class="endpoint">
+            <span class="method">POST</span> /api/v1/payments/callback/alipay/ - 支付宝支付回调
+        </div>
+        <div class="endpoint">
+            <span class="method">POST</span> /api/v1/refunds/ - 申请退款
         </div>
     </div>
 </body>
